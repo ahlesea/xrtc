@@ -43,6 +43,11 @@ Additionally - there are python scripts added in the hdl/xdc directories that mo
 
 2.  All the KU060 timing constraints are commented out.  We should add constraints here to inform the router that the IO signals are synchronous with the clock input.
 3.  When XILSEM is enabled the PDI won't generate <a href>https://support.xilinx.com/s/article/000034918?language=en_US</a>
+    1. Install tactical patch from 34918
+      1. download from the support link
+      2. unzip to <VIVADO_INSTALL_PATH>/Vivado/<ver>/patches/ar34918
+      3. Add XILINX_PATH env var and point it to <VIVADO_INSTALL_PATH/Vivado/<ver>/patches/ar34918
+      4. restart Vivado
 
 # Vivado differences from KU060
 1.  BITSTREAM.* properties in the xdc are no longer valid for the Versal PL
