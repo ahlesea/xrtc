@@ -11,20 +11,19 @@ This one repo contains all eight permuations of the projects:
       - registered
       - unregistered
     - LVDS
-      - registered
       - unregistered
   - SEM Disabled
     - LVCMOS
       - registered
       - unregistered
     - LVDS
-      - registered
       - unregistered
 
-within each sub project the directory consists of 
+within each sub project the directory consists of <br>
 PROJ
   - hdl
   - xdc
+  - xsa
 
 <i> The original KU060 sources are kept in the hdl/xdc directories for reference during troubleshooting <br>
 Additionally - there are python scripts added in the hdl/xdc directories that more or less document the conversion strategy that was used </i>
@@ -50,6 +49,8 @@ Additionally - there are python scripts added in the hdl/xdc directories that mo
       3. Add XILINX_PATH env var and point it to <VIVADO_INSTALL_PATH/Vivado/<ver>/patches/ar34918<br>
       4. restart Vivado<br>
 - <a href>https://support.xilinx.com/s/article/000035351?language=en_US</a>
+
+Garret is able to produce PDI in 2022.1 Linux, could be a Windows/Linux compatibility issue.
 
 
 # Vivado differences from KU060
