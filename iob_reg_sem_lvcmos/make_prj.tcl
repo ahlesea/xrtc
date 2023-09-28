@@ -59,7 +59,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set _xil_proj_name_ "lvcmos_iob_nosem"
+set _xil_proj_name_ "lvcmos_iob_reg_wsem"
 
 # Use project name variable, if specified in the tcl shell
 if { [info exists ::user_project_name] } {
@@ -458,8 +458,8 @@ proc cr_bd_design_1 { parentCell } {
   set df_o_p_20 [ create_bd_port -dir O df_o_p_20 ]
   set df_o_p_57 [ create_bd_port -dir O df_o_p_57 ]
 
-  # Create instance: XRTC_CIPS_no_Sem, and set properties
-  set XRTC_CIPS_no_Sem [ create_bd_cell -type ip -vlnv xilinx.com:ip:versal_cips:3.2 XRTC_CIPS_no_Sem ]
+  # Create instance: XRTC_CIPS_w_Sem, and set properties
+  set XRTC_CIPS_w_Sem [ create_bd_cell -type ip -vlnv xilinx.com:ip:versal_cips:3.2 XRTC_CIPS_w_Sem ]
   set_property -dict [ list \
    CONFIG.BOOT_MODE {Custom} \
    CONFIG.DEBUG_MODE {Custom} \
@@ -472,7 +472,7 @@ proc cr_bd_design_1 { parentCell } {
      PMC_BANK_1_IO_STANDARD {LVCMOS3.3}\
      PMC_QSPI_PERIPHERAL_ENABLE {0}\
      PMC_QSPI_PERIPHERAL_MODE {Single}\
-     PMC_REF_CLK_FREQMHZ {33.333}\
+     PMC_REF_CLK_FREQMHZ {50}\
      PMC_SMAP_PERIPHERAL {{ENABLE 1} {IO {32 Bit}}}\
      PS_BANK_2_IO_STANDARD {LVCMOS3.3}\
      PS_BANK_3_IO_STANDARD {LVCMOS3.3}\
@@ -481,14 +481,14 @@ proc cr_bd_design_1 { parentCell } {
      PS_UART0_BAUD_RATE {115200}\
      PS_UART0_PERIPHERAL {{ENABLE 1} {IO {PMC_MIO 26 .. 27}}}\
      PS_UART1_PERIPHERAL {{ENABLE 0} {IO {PMC_MIO 4 .. 5}}}\
-     SEM_MEM_ENABLE_SCAN_AFTER {0}\
-     SEM_MEM_SCAN {0}\
+     SEM_MEM_ENABLE_SCAN_AFTER {1}\
+     SEM_MEM_SCAN {1}\
      SMON_ALARMS {Set_Alarms_On}\
      SMON_ENABLE_TEMP_AVERAGING {0}\
      SMON_TEMP_AVERAGING_SAMPLES {0}\
    } \
    CONFIG.PS_PMC_CONFIG_APPLIED {1} \
- ] $XRTC_CIPS_no_Sem
+ ] $XRTC_CIPS_w_Sem
 
   # Create instance: iob_lvcmos_dut_reg_0, and set properties
   set block_name iob_lvcmos_dut_reg
@@ -757,7 +757,7 @@ preplace port port-id_df_o_p_17 -pg 1 -lvl 3 -x 670 -y 1350 -defaultsOSRD
 preplace port port-id_df_o_p_19 -pg 1 -lvl 3 -x 670 -y 250 -defaultsOSRD
 preplace port port-id_df_o_p_20 -pg 1 -lvl 3 -x 670 -y 1390 -defaultsOSRD
 preplace port port-id_df_o_p_57 -pg 1 -lvl 3 -x 670 -y 1810 -defaultsOSRD
-preplace inst XRTC_CIPS_no_Sem -pg 1 -lvl 2 -x 460 -y 60 -defaultsOSRD
+preplace inst XRTC_CIPS_w_Sem -pg 1 -lvl 2 -x 460 -y 60 -defaultsOSRD
 preplace inst iob_lvcmos_dut_reg_0 -pg 1 -lvl 1 -x 140 -y 1020 -defaultsOSRD
 preplace netloc df_0001_n_1 1 0 1 NJ 950
 preplace netloc df_0002_n_1 1 0 1 NJ 1150
