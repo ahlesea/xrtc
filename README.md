@@ -4,7 +4,7 @@
 - The IO standard is changed to 1V5 LVCMOS and LVDS1V5 in the xdc file
 - Built using Vivado 2022.1
 
-# structure
+# Structure
 This one repo contains all eight permuations of the projects:
   - SEM Enabled
     - LVCMOS
@@ -25,7 +25,9 @@ within each sub project the directory consists of
 PROJ
   - hdl
   - xdc
-    
+
+<i> The original KU060 sources are kept in the hdl/xdc directories for reference during troubleshooting <br>
+Additionally - there are python scripts added in the hdl/xdc directories that more or less document the conversion strategy that was used </i>
      
 # Build Instructions
 1. Clone this repo to an area on the disk with a 10character path length or less.  (If you don't then PDI gen will fail due to compilation errors) <a href> https://support.xilinx.com/s/question/0D52E00006hpR4ASAU/pdi-generation-fails-in-vivado-20202-during-bootgen-for-versal-vck190?language=en_US </a>
