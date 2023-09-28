@@ -33,8 +33,8 @@ set_property PACKAGE_PIN AU36 [get_ports {df_o_n_1}];
 set_property PACKAGE_PIN AU37 [get_ports {df_o_p_1}];
 set_property PACKAGE_PIN BE22 [get_ports {df_o_n_9}];
 set_property PACKAGE_PIN BF23 [get_ports {df_o_p_9}];
-set_property PACKAGE_PIN BA37 [get_ports {df_i_n_21}];
-set_property PACKAGE_PIN AY37 [get_ports {df_i_p_21}];
+#set_property PACKAGE_PIN BA37 [get_ports {df_i_n_21}];
+#set_property PACKAGE_PIN AY37 [get_ports {df_i_p_21}];
 set_property PACKAGE_PIN AT25 [get_ports {df_0000_n}];
 set_property PACKAGE_PIN AT26 [get_ports {df_0000_p}];
 set_property PACKAGE_PIN BA27 [get_ports {df_0001_n}];
@@ -123,8 +123,8 @@ set_property PACKAGE_PIN BE29 [get_ports {df_0019_n}];
 set_property PACKAGE_PIN BE30 [get_ports {df_0019_p}];
 set_property PACKAGE_PIN BG33 [get_ports {df_0020_n}];
 set_property PACKAGE_PIN BF33 [get_ports {df_0020_p}];
-set_property PACKAGE_PIN BG34 [get_ports {df_0021_n}];
-set_property PACKAGE_PIN BG35 [get_ports {df_0021_p}];
+#set_property PACKAGE_PIN BG34 [get_ports {df_0021_n}];
+#set_property PACKAGE_PIN BG35 [get_ports {df_0021_p}];
 set_property PACKAGE_PIN BA31 [get_ports {df_i_n_80}];
 set_property PACKAGE_PIN AY31 [get_ports {df_i_p_80}];
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0000_n}]
@@ -161,8 +161,8 @@ set_property IOSTANDARD LVCMOS15 [get_ports {df_0019_n}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0019_p}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0020_n}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0020_p}]
-set_property IOSTANDARD LVCMOS15 [get_ports {df_0021_n}]
-set_property IOSTANDARD LVCMOS15 [get_ports {df_0021_p}]
+#set_property IOSTANDARD LVCMOS15 [get_ports {df_0021_n}]
+#set_property IOSTANDARD LVCMOS15 [get_ports {df_0021_p}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0022_n}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0022_p}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_0023_n}]
@@ -203,7 +203,7 @@ set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_15}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_16}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_17}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_20}]
-set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_21}]
+#set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_21}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_5}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_n_54}]
 set_property IOSTANDARD LVDS15 [get_ports {df_i_p_80}]
@@ -214,7 +214,7 @@ set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_15}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_16}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_17}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_20}]
-set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_21}]
+#set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_21}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_5}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_i_p_54}]
 set_property IOSTANDARD LVCMOS15 [get_ports {df_o_n_1}]

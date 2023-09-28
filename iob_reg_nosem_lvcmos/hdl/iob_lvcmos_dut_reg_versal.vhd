@@ -86,8 +86,8 @@ entity iob_lvcmos_dut_reg is
 
 
         -- KU060 Bank 25 (52 IOs)
-        df_i_n_21                 : in   std_logic; -- KU060 Bank 25 (diff_bus_in_cc_n[21])
-        df_i_p_21                 : out  std_logic; -- KU060 Bank 25 (diff_bus_in_cc_p[21])
+        --df_i_n_21                 : in   std_logic; -- KU060 Bank 25 (diff_bus_in_cc_n[21])
+        --df_i_p_21                 : out  std_logic; -- KU060 Bank 25 (diff_bus_in_cc_p[21])
 
 
 
@@ -199,9 +199,9 @@ entity iob_lvcmos_dut_reg is
         df_0019_n                 : in    std_logic; -- KU060 Bank 66
         df_0019_p                 : out   std_logic; -- KU060 Bank 66
         df_0020_n                 : out   std_logic; -- KU060 Bank 66
-        df_0020_p                 : out   std_logic; -- KU060 Bank 66
-        df_0021_n                 : out   std_logic; -- KU060 Bank 66
-        df_0021_p                 : out   std_logic  -- KU060 Bank 66
+        df_0020_p                 : out   std_logic -- KU060 Bank 66
+        --df_0021_n                 : out   std_logic; -- KU060 Bank 66
+        --df_0021_p                 : out   std_logic  -- KU060 Bank 66
 
         -- KU060 Bank 67 (not used. bank with limited IO to FuncMon FPGA)
         -- KU060 Bank 68 (not used. bank with limited IO to FuncMon FPGA)
@@ -226,7 +226,8 @@ architecture behavioral of iob_lvcmos_dut_reg is
       IB                : in  std_ulogic);
   end component;
 
-  constant IN_IOB_COUNT      : integer := 42;
+  --constant IN_IOB_COUNT      : integer := 42;
+  constant IN_IOB_COUNT      : integer := 29;
 
   signal   internal_bus      : std_logic_vector(IN_IOB_COUNT-1 downto 0);
   signal   iob_in            : std_logic_vector(IN_IOB_COUNT-1 downto 0);
@@ -392,8 +393,8 @@ begin
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 25 (52 IOs)
 -------------------------------------------------------------------------------
-  iob_in(7)             <= df_i_n_21;
-  df_i_p_21             <= iob_out_a(7);
+  --iob_in(7)             <= df_i_n_21;
+  --df_i_p_21             <= iob_out_a(7);
 
 
 
@@ -404,116 +405,116 @@ begin
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 44 (47 IOs)
 -------------------------------------------------------------------------------
-  iob_in(12)            <= df_i_n_5;
-  df_i_p_5              <= iob_out_a(12);
-  df_i_n_10             <= iob_out_b(12);
-  df_i_p_10             <= iob_out_c(12);
+  iob_in(7)            <= df_i_n_5;
+  df_i_p_5              <= iob_out_a(7);
+  df_i_n_10             <= iob_out_b(7);
+  df_i_p_10             <= iob_out_c(7);
 
-  iob_in(13)            <= df_i_n_12;
-  df_i_p_12             <= iob_out_a(13);
-  df_i_n_15             <= iob_out_b(13);
-  df_i_p_15             <= iob_out_c(13);
+  iob_in(8)            <= df_i_n_12;
+  df_i_p_12             <= iob_out_a(8);
+  df_i_n_15             <= iob_out_b(8);
+  df_i_p_15             <= iob_out_c(8);
 
-  iob_in(14)            <= df_i_n_16;
-  df_i_p_16             <= iob_out_a(14);
-  df_i_n_17             <= iob_out_b(14);
-  df_i_p_17             <= iob_out_c(14);
+  iob_in(9)            <= df_i_n_16;
+  df_i_p_16             <= iob_out_a(9);
+  df_i_n_17             <= iob_out_b(9);
+  df_i_p_17             <= iob_out_c(9);
 
-  iob_in(15)            <= df_o_n_5;
-  df_o_p_5              <= iob_out_a(15);
-  df_0000_n             <= iob_out_b(15);
-  df_0000_p             <= iob_out_c(15);
+  iob_in(10)            <= df_o_n_5;
+  df_o_p_5              <= iob_out_a(10);
+  df_0000_n             <= iob_out_b(10);
+  df_0000_p             <= iob_out_c(10);
 
-  iob_in(16)            <= df_0001_n;
-  df_0001_p             <= iob_out_a(16);
-  df_0005_n             <= iob_out_b(16);
-  df_0005_p             <= iob_out_c(16);
+  iob_in(11)            <= df_0001_n;
+  df_0001_p             <= iob_out_a(11);
+  df_0005_n             <= iob_out_b(11);
+  df_0005_p             <= iob_out_c(11);
 
-  iob_in(17)            <= df_0008_n;
-  df_0008_p             <= iob_out_a(17);
-  df_0011_n             <= iob_out_b(17);
-  df_0011_p             <= iob_out_c(17);
+  iob_in(12)            <= df_0008_n;
+  df_0008_p             <= iob_out_a(12);
+  df_0011_n             <= iob_out_b(12);
+  df_0011_p             <= iob_out_c(12);
 
-  iob_in(18)            <= df_0012_n;
-  df_0012_p             <= iob_out_a(18);
-  df_0013_n             <= iob_out_b(18);
-  df_0013_p             <= iob_out_c(18);
+  iob_in(13)            <= df_0012_n;
+  df_0012_p             <= iob_out_a(13);
+  df_0013_n             <= iob_out_b(13);
+  df_0013_p             <= iob_out_c(13);
 
-  iob_in(19)            <= df_0017_n;
-  df_0017_p             <= iob_out_a(19);
-  df_0023_n             <= iob_out_b(19);
-  df_0023_p             <= iob_out_c(19);
+  iob_in(14)            <= df_0017_n;
+  df_0017_p             <= iob_out_a(14);
+  df_0023_n             <= iob_out_b(14);
+  df_0023_p             <= iob_out_c(14);
 
-  iob_in(20)            <= df_0028_n;
-  df_0028_p             <= iob_out_a(20);
-  df_0046_n             <= iob_out_b(20);
-  df_0046_p             <= iob_out_c(20);
+  iob_in(15)            <= df_0028_n;
+  df_0028_p             <= iob_out_a(15);
+  df_0046_n             <= iob_out_b(15);
+  df_0046_p             <= iob_out_c(15);
 
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 45 (51 IOs)
 -------------------------------------------------------------------------------
-  iob_in(21)            <= df_o_n_2;
-  df_o_p_2              <= iob_out_a(21);
-  df_o_n_6              <= iob_out_b(21);
-  df_o_p_6              <= iob_out_c(21);
+  iob_in(16)            <= df_o_n_2;
+  df_o_p_2              <= iob_out_a(16);
+  df_o_n_6              <= iob_out_b(16);
+  df_o_p_6              <= iob_out_c(16);
 
-  iob_in(22)            <= df_o_n_7;
-  df_o_p_7              <= iob_out_a(22);
-  df_o_n_10             <= iob_out_b(22);
-  df_o_p_10             <= iob_out_c(22);
+  iob_in(17)            <= df_o_n_7;
+  df_o_p_7              <= iob_out_a(17);
+  df_o_n_10             <= iob_out_b(17);
+  df_o_p_10             <= iob_out_c(17);
 
-  iob_in(23)            <= df_o_n_11;
-  df_o_p_11             <= iob_out_a(23);
-  df_o_n_12             <= iob_out_b(23);
-  df_o_p_12             <= iob_out_c(23);
+  iob_in(18)            <= df_o_n_11;
+  df_o_p_11             <= iob_out_a(18);
+  df_o_n_12             <= iob_out_b(18);
+  df_o_p_12             <= iob_out_c(18);
 
-  iob_in(24)            <= df_o_n_15;
-  df_o_p_15             <= iob_out_a(24);
-  df_o_n_16             <= iob_out_b(24);
-  df_o_p_16             <= iob_out_c(24);
+  iob_in(19)            <= df_o_n_15;
+  df_o_p_15             <= iob_out_a(19);
+  df_o_n_16             <= iob_out_b(19);
+  df_o_p_16             <= iob_out_c(19);
 
-  iob_in(25)            <= df_o_n_17;
-  df_o_p_17             <= iob_out_a(25);
-  df_o_n_20             <= iob_out_b(25);
-  df_o_p_20             <= iob_out_c(25);
+  iob_in(20)            <= df_o_n_17;
+  df_o_p_17             <= iob_out_a(20);
+  df_o_n_20             <= iob_out_b(20);
+  df_o_p_20             <= iob_out_c(20);
 
-  iob_in(26)            <= df_0002_n;
-  df_0002_p             <= iob_out_a(26);
-  df_0004_n             <= iob_out_b(26);
-  df_0004_p             <= iob_out_c(26);
+  iob_in(21)            <= df_0002_n;
+  df_0002_p             <= iob_out_a(21);
+  df_0004_n             <= iob_out_b(21);
+  df_0004_p             <= iob_out_c(21);
 
-  iob_in(27)            <= df_0007_n;
-  df_0007_p             <= iob_out_a(27);
-  df_0010_n             <= iob_out_b(27);
-  df_0010_p             <= iob_out_c(27);
+  iob_in(22)            <= df_0007_n;
+  df_0007_p             <= iob_out_a(22);
+  df_0010_n             <= iob_out_b(22);
+  df_0010_p             <= iob_out_c(22);
 
-  iob_in(28)            <= df_0014_n;
-  df_0014_p             <= iob_out_a(28);
-  df_0016_n             <= iob_out_b(28);
-  df_0016_p             <= iob_out_c(28);
+  iob_in(23)            <= df_0014_n;
+  df_0014_p             <= iob_out_a(23);
+  df_0016_n             <= iob_out_b(23);
+  df_0016_p             <= iob_out_c(23);
 
-  iob_in(29)            <= df_0018_n;
-  df_0018_p             <= iob_out_a(29);
-  df_0022_n             <= iob_out_b(29);
-  df_0022_p             <= iob_out_c(29);
+  iob_in(24)            <= df_0018_n;
+  df_0018_p             <= iob_out_a(24);
+  df_0022_n             <= iob_out_b(24);
+  df_0022_p             <= iob_out_c(24);
 
-  iob_in(30)            <= df_0029_n;
-  df_0029_p             <= iob_out_a(30);
-  df_0048_n             <= iob_out_b(30);
-  df_0048_p             <= iob_out_c(30);
+  iob_in(25)            <= df_0029_n;
+  df_0029_p             <= iob_out_a(25);
+  df_0048_n             <= iob_out_b(25);
+  df_0048_p             <= iob_out_c(25);
 
-  iob_in(31)            <= df_0049_n;
-  df_0049_p             <= iob_out_a(31);
-  df_0050_n             <= iob_out_b(31);
-  df_0050_p             <= iob_out_c(31);
+  iob_in(26)            <= df_0049_n;
+  df_0049_p             <= iob_out_a(26);
+  df_0050_n             <= iob_out_b(26);
+  df_0050_p             <= iob_out_c(26);
 
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 46 (52 IOs)
 -------------------------------------------------------------------------------
-  iob_in(32)            <= df_i_n_54;
-  df_i_p_54             <= iob_out_a(32);
-  df_o_n_57             <= iob_out_b(32);
-  df_o_p_57             <= iob_out_c(32);
+  iob_in(27)            <= df_i_n_54;
+  df_i_p_54             <= iob_out_a(27);
+  df_o_n_57             <= iob_out_b(27);
+  df_o_p_57             <= iob_out_c(27);
 
 -- UNUSED
 
@@ -538,15 +539,15 @@ begin
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 66 (46 IOs)
 -------------------------------------------------------------------------------
-  df_0021_n             <= iob_out_b(38);
-  df_0021_p             <= iob_out_c(38);
+  --df_0021_n             <= iob_out_b(38);
+  --df_0021_p             <= iob_out_c(38);
 
 
 
-  iob_in(41)            <= df_0019_n;
-  df_0019_p             <= iob_out_a(41);
-  df_0020_n             <= iob_out_b(41);
-  df_0020_p             <= iob_out_c(41);
+  iob_in(28)            <= df_0019_n;
+  df_0019_p             <= iob_out_a(28);
+  df_0020_n             <= iob_out_b(28);
+  df_0020_p             <= iob_out_c(28);
 
 -- Unused
 --df_i_n_1

@@ -369,8 +369,6 @@ proc cr_bd_design_1 { parentCell } {
   set df_0019_p [ create_bd_port -dir O df_0019_p ]
   set df_0020_n [ create_bd_port -dir O df_0020_n ]
   set df_0020_p [ create_bd_port -dir O df_0020_p ]
-  set df_0021_n [ create_bd_port -dir O df_0021_n ]
-  set df_0021_p [ create_bd_port -dir O df_0021_p ]
   set df_0022_n [ create_bd_port -dir O df_0022_n ]
   set df_0022_p [ create_bd_port -dir O df_0022_p ]
   set df_0023_n [ create_bd_port -dir O df_0023_n ]
@@ -412,7 +410,6 @@ proc cr_bd_design_1 { parentCell } {
   set df_i_n_16 [ create_bd_port -dir I df_i_n_16 ]
   set df_i_n_17 [ create_bd_port -dir O df_i_n_17 ]
   set df_i_n_20 [ create_bd_port -dir I df_i_n_20 ]
-  set df_i_n_21 [ create_bd_port -dir I df_i_n_21 ]
   set df_i_n_54 [ create_bd_port -dir I df_i_n_54 ]
   set df_i_n_80 [ create_bd_port -dir I df_i_n_80 ]
   set df_i_p_5 [ create_bd_port -dir O df_i_p_5 ]
@@ -422,7 +419,6 @@ proc cr_bd_design_1 { parentCell } {
   set df_i_p_16 [ create_bd_port -dir O df_i_p_16 ]
   set df_i_p_17 [ create_bd_port -dir O df_i_p_17 ]
   set df_i_p_20 [ create_bd_port -dir O df_i_p_20 ]
-  set df_i_p_21 [ create_bd_port -dir O df_i_p_21 ]
   set df_i_p_54 [ create_bd_port -dir O df_i_p_54 ]
   set df_i_p_80 [ create_bd_port -dir I df_i_p_80 ]
   set df_o_n_1 [ create_bd_port -dir O df_o_n_1 ]
@@ -521,7 +517,6 @@ proc cr_bd_design_1 { parentCell } {
   connect_bd_net -net df_i_n_12_1 [get_bd_ports df_i_n_12] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_12]
   connect_bd_net -net df_i_n_16_1 [get_bd_ports df_i_n_16] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_16]
   connect_bd_net -net df_i_n_20_1 [get_bd_ports df_i_n_20] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_20]
-  connect_bd_net -net df_i_n_21_1 [get_bd_ports df_i_n_21] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_21]
   connect_bd_net -net df_i_n_54_1 [get_bd_ports df_i_n_54] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_54]
   connect_bd_net -net df_i_n_5_1 [get_bd_ports df_i_n_5] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_5]
   connect_bd_net -net df_i_n_80_1 [get_bd_ports df_i_n_80] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_n_80]
@@ -559,8 +554,6 @@ proc cr_bd_design_1 { parentCell } {
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0019_p [get_bd_ports df_0019_p] [get_bd_pins iob_lvcmos_dut_reg_0/df_0019_p]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0020_n [get_bd_ports df_0020_n] [get_bd_pins iob_lvcmos_dut_reg_0/df_0020_n]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0020_p [get_bd_ports df_0020_p] [get_bd_pins iob_lvcmos_dut_reg_0/df_0020_p]
-  connect_bd_net -net iob_lvcmos_dut_reg_0_df_0021_n [get_bd_ports df_0021_n] [get_bd_pins iob_lvcmos_dut_reg_0/df_0021_n]
-  connect_bd_net -net iob_lvcmos_dut_reg_0_df_0021_p [get_bd_ports df_0021_p] [get_bd_pins iob_lvcmos_dut_reg_0/df_0021_p]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0022_n [get_bd_ports df_0022_n] [get_bd_pins iob_lvcmos_dut_reg_0/df_0022_n]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0022_p [get_bd_ports df_0022_p] [get_bd_pins iob_lvcmos_dut_reg_0/df_0022_p]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_0023_n [get_bd_ports df_0023_n] [get_bd_pins iob_lvcmos_dut_reg_0/df_0023_n]
@@ -598,7 +591,6 @@ proc cr_bd_design_1 { parentCell } {
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_i_p_16 [get_bd_ports df_i_p_16] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_p_16]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_i_p_17 [get_bd_ports df_i_p_17] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_p_17]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_i_p_20 [get_bd_ports df_i_p_20] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_p_20]
-  connect_bd_net -net iob_lvcmos_dut_reg_0_df_i_p_21 [get_bd_ports df_i_p_21] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_p_21]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_i_p_54 [get_bd_ports df_i_p_54] [get_bd_pins iob_lvcmos_dut_reg_0/df_i_p_54]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_o_n_1 [get_bd_ports df_o_n_1] [get_bd_pins iob_lvcmos_dut_reg_0/df_o_n_1]
   connect_bd_net -net iob_lvcmos_dut_reg_0_df_o_n_6 [get_bd_ports df_o_n_6] [get_bd_pins iob_lvcmos_dut_reg_0/df_o_n_6]
@@ -669,8 +661,6 @@ preplace port port-id_df_0019_n -pg 1 -lvl 0 -x 0 -y 1330 -defaultsOSRD
 preplace port port-id_df_0019_p -pg 1 -lvl 3 -x 670 -y 1830 -defaultsOSRD
 preplace port port-id_df_0020_n -pg 1 -lvl 3 -x 670 -y 1850 -defaultsOSRD
 preplace port port-id_df_0020_p -pg 1 -lvl 3 -x 670 -y 1870 -defaultsOSRD
-preplace port port-id_df_0021_n -pg 1 -lvl 3 -x 670 -y 1890 -defaultsOSRD
-preplace port port-id_df_0021_p -pg 1 -lvl 3 -x 670 -y 1910 -defaultsOSRD
 preplace port port-id_df_0022_n -pg 1 -lvl 3 -x 670 -y 1610 -defaultsOSRD
 preplace port port-id_df_0022_p -pg 1 -lvl 3 -x 670 -y 1630 -defaultsOSRD
 preplace port port-id_df_0023_n -pg 1 -lvl 3 -x 670 -y 1010 -defaultsOSRD
@@ -712,7 +702,6 @@ preplace port port-id_df_i_n_15 -pg 1 -lvl 3 -x 670 -y 650 -defaultsOSRD
 preplace port port-id_df_i_n_16 -pg 1 -lvl 0 -x 0 -y 910 -defaultsOSRD
 preplace port port-id_df_i_n_17 -pg 1 -lvl 3 -x 670 -y 710 -defaultsOSRD
 preplace port port-id_df_i_n_20 -pg 1 -lvl 0 -x 0 -y 710 -defaultsOSRD
-preplace port port-id_df_i_n_21 -pg 1 -lvl 0 -x 0 -y 850 -defaultsOSRD
 preplace port port-id_df_i_n_54 -pg 1 -lvl 0 -x 0 -y 1270 -defaultsOSRD
 preplace port port-id_df_i_n_80 -pg 1 -lvl 0 -x 0 -y 1290 -defaultsOSRD
 preplace port port-id_df_i_p_5 -pg 1 -lvl 3 -x 670 -y 570 -defaultsOSRD
@@ -722,7 +711,6 @@ preplace port port-id_df_i_p_15 -pg 1 -lvl 3 -x 670 -y 670 -defaultsOSRD
 preplace port port-id_df_i_p_16 -pg 1 -lvl 3 -x 670 -y 690 -defaultsOSRD
 preplace port port-id_df_i_p_17 -pg 1 -lvl 3 -x 670 -y 730 -defaultsOSRD
 preplace port port-id_df_i_p_20 -pg 1 -lvl 3 -x 670 -y 130 -defaultsOSRD
-preplace port port-id_df_i_p_21 -pg 1 -lvl 3 -x 670 -y 550 -defaultsOSRD
 preplace port port-id_df_i_p_54 -pg 1 -lvl 3 -x 670 -y 1770 -defaultsOSRD
 preplace port port-id_df_i_p_80 -pg 1 -lvl 0 -x 0 -y 1310 -defaultsOSRD
 preplace port port-id_df_o_n_1 -pg 1 -lvl 3 -x 670 -y 150 -defaultsOSRD
@@ -778,7 +766,6 @@ preplace netloc df_0095_n_1 1 0 1 NJ 830
 preplace netloc df_i_n_12_1 1 0 1 NJ 890
 preplace netloc df_i_n_16_1 1 0 1 NJ 910
 preplace netloc df_i_n_20_1 1 0 1 NJ 710
-preplace netloc df_i_n_21_1 1 0 1 NJ 850
 preplace netloc df_i_n_54_1 1 0 1 NJ 1270
 preplace netloc df_i_n_5_1 1 0 1 NJ 870
 preplace netloc df_i_n_80_1 1 0 1 NJ 1290
@@ -855,7 +842,6 @@ preplace netloc iob_lvcmos_dut_reg_0_df_i_p_15 1 1 2 NJ 670 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_i_p_16 1 1 2 NJ 690 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_i_p_17 1 1 2 NJ 730 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_i_p_20 1 1 2 NJ 130 NJ
-preplace netloc iob_lvcmos_dut_reg_0_df_i_p_21 1 1 2 NJ 550 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_i_p_54 1 1 2 NJ 1770 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_o_n_1 1 1 2 NJ 150 NJ
 preplace netloc iob_lvcmos_dut_reg_0_df_o_n_6 1 1 2 NJ 1130 NJ
