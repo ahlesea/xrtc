@@ -42,12 +42,15 @@ Additionally - there are python scripts added in the hdl/xdc directories that mo
     ```[DRC RTSTAT-10] No routable loads: 36 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[8], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[9], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[10], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[11], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[33], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[34], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[35], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[36], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[37], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[38], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[39], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_a[40], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_b[7], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_b[8], design_1_i/iob_lvcmos_dut_reg_0/inst/iob_out_b[9]... and (the first 15 of 36 listed).```
 
 2.  All the KU060 timing constraints are commented out.  We should add constraints here to inform the router that the IO signals are synchronous with the clock input.
-3.  When XILSEM is enabled the PDI won't generate <a href>https://support.xilinx.com/s/article/000034918?language=en_US</a>
+3.  When XILSEM is enabled the PDI won't generate
+- <a href>https://support.xilinx.com/s/article/000034918?language=en_US</a>
     1. Install tactical patch from 34918
       1. download from the support link
       2. unzip to <VIVADO_INSTALL_PATH>/Vivado/<ver>/patches/ar34918
       3. Add XILINX_PATH env var and point it to <VIVADO_INSTALL_PATH/Vivado/<ver>/patches/ar34918
       4. restart Vivado
+- <a href>https://support.xilinx.com/s/article/000035351?language=en_US</a>
+
 
 # Vivado differences from KU060
 1.  BITSTREAM.* properties in the xdc are no longer valid for the Versal PL
