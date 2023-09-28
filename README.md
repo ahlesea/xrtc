@@ -45,10 +45,10 @@ Additionally - there are python scripts added in the hdl/xdc directories that mo
 3.  When XILSEM is enabled the PDI won't generate
 - <a href>https://support.xilinx.com/s/article/000034918?language=en_US</a>
     1. Install tactical patch from 34918
-      1. download from the support link
-      2. unzip to <VIVADO_INSTALL_PATH>/Vivado/<ver>/patches/ar34918
-      3. Add XILINX_PATH env var and point it to <VIVADO_INSTALL_PATH/Vivado/<ver>/patches/ar34918
-      4. restart Vivado
+      1. download from the support link<br>
+      2. unzip to <VIVADO_INSTALL_PATH>/Vivado/<ver>/patches/ar34918<br>
+      3. Add XILINX_PATH env var and point it to <VIVADO_INSTALL_PATH/Vivado/<ver>/patches/ar34918<br>
+      4. restart Vivado<br>
 - <a href>https://support.xilinx.com/s/article/000035351?language=en_US</a>
 
 
