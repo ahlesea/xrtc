@@ -9,11 +9,12 @@
 -- THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --
 ------------------------------------------------------------------------------
--- File Name   : iob_lvcmos_dut_noreg.vhd
+--
+-- File Name   : iob_lvcmos_dut_reg.vhd
 -- Description : LVCMOS18 IOB radiation test build - IOB registered
 --
 -- Author      : P H Park, Boeing for the XRTC
--- Date        : 4/9/2021
+-- Date        : 1/14/2021
 --
 -------------------------------------------------------------------------------
 -- Revision History
@@ -39,7 +40,7 @@ use UNISIM.VComponents.all;
 
 library XILINXCORELIB;
 
-entity iob_lvcmos_dut_noreg is
+entity iob_lvcmos_dut_reg is
   port (
       --diff_bus_in_n             : in    std_logic_vector(20 downto 0);
       --diff_bus_in_p             : in    std_logic_vector(20 downto 0);
@@ -54,19 +55,6 @@ entity iob_lvcmos_dut_noreg is
         diff_clka_p               : in    std_logic; -- KU060 Bank 44
         diff_clkb_n               : in    std_logic; -- KU060 Bank 44
         diff_clkb_p               : in    std_logic; -- KU060 Bank 44
-
-      --diff_bus_out_n_49         : in    std_logic; -- KU060 Bank 48
-      --diff_bus_out_p_49         : in    std_logic; -- KU060 Bank 48
-        
-      --dut_gen_clk_ina           : in    std_logic; -- KU060 Bank 48
-      --dut_gen_clk_inb           : in    std_logic; -- KU060 Bank 48 (can't use it as single ended clock)
-      --dut_gen_clk_inc           : in    std_logic; -- KU060 Bank 48
-      --dut_gen_clk_ind           : in    std_logic; -- KU060 Bank 48 (can't use it as single ended clock)
-
-      --dut_gen_clk_outa          : out   std_logic; -- KU060 Bank 48
-      --dut_gen_clk_outb          : out   std_logic; -- KU060 Bank 48
-      --dut_gen_clk_outc          : out   std_logic; -- KU060 Bank 48
-      --dut_gen_clk_outd          : out   std_logic; -- KU060 Bank 48
 
         fst_clkn_fpga             : in    std_logic; -- KU060 Bank 45
         fst_clkp_fpga             : in    std_logic; -- KU060 Bank 45
@@ -292,10 +280,25 @@ entity iob_lvcmos_dut_noreg is
         -- KU060 Bank 67 (not used. bank with limited IO to FuncMon FPGA)
         -- KU060 Bank 68 (not used. bank with limited IO to FuncMon FPGA)
     );
-end iob_lvcmos_dut_noreg;
+end iob_lvcmos_dut_reg;
 
 
-architecture behavioral of iob_lvcmos_dut_noreg is
+architecture behavioral of iob_lvcmos_dut_reg is
+
+  component IBUFDS
+    generic(
+      CAPACITANCE       : string  := "DONT_CARE";
+      DIFF_TERM         : boolean :=  FALSE;
+      DQS_BIAS          : string  :=  "FALSE";
+      IBUF_DELAY_VALUE  : string  := "0";
+      IBUF_LOW_PWR      : boolean :=  TRUE;
+      IFD_DELAY_VALUE   : string  := "AUTO";
+      IOSTANDARD        : string  := "DEFAULT");
+    port(
+      O                 : out std_ulogic;
+      I                 : in  std_ulogic;
+      IB                : in  std_ulogic);
+  end component;
 
   constant IN_IOB_COUNT      : integer := 42;
 
@@ -306,22 +309,24 @@ architecture behavioral of iob_lvcmos_dut_noreg is
   signal   iob_out_c         : std_logic_vector(IN_IOB_COUNT-1 downto 0);
 
   -- Clock signals for clock buffers
-  signal diff_clka_int    : std_logic;
+  signal clk_ina_int      : std_logic;
 --signal diff_clkb_int    : std_logic;
   signal diff_clka        : std_logic;
 --signal diff_clkb        : std_logic;
 --signal clk_ina          : std_logic;
 --signal clk_inb          : std_logic;
-  signal clk_inc          : std_logic;
-  signal clk_ind          : std_logic;
+--signal clk_inc          : std_logic;
+--signal clk_ind          : std_logic;
+
+  signal clk_in           : std_logic;
 
   -- Must have these attributes to keep the replicated output registers both through synthesis and implementation
   attribute DONT_TOUCH : string;
   attribute DONT_TOUCH of internal_bus : signal is "TRUE";
---attribute DONT_TOUCH of iob_in       : signal is "TRUE";
---attribute DONT_TOUCH of iob_out_a    : signal is "TRUE";
---attribute DONT_TOUCH of iob_out_b    : signal is "TRUE";
---attribute DONT_TOUCH of iob_out_c    : signal is "TRUE";
+  attribute DONT_TOUCH of iob_in       : signal is "TRUE";
+  attribute DONT_TOUCH of iob_out_a    : signal is "TRUE";
+  attribute DONT_TOUCH of iob_out_b    : signal is "TRUE";
+  attribute DONT_TOUCH of iob_out_c    : signal is "TRUE";
 
 
 begin
@@ -353,23 +358,21 @@ begin
 -- can't tell they are differential signals, and bitgen fails
 -- Comment out BUFG if clock unused.
 
---  IBUFGDS_inst_a : IBUFGDS
---      generic map (
---          DIFF_TERM       => TRUE,
---          IBUF_LOW_PWR    => TRUE,
---          IOSTANDARD      => "DEFAULT"
---      )
---      port map (
---          O   => diff_clka_int,
---          I   => diff_clka_p,
---          IB  => diff_clka_n
---      );
+    ibufds_clk_i : IBUFDS
+      generic map (
+        DIFF_TERM  => TRUE,
+        IOSTANDARD => "LVDS")
+      port map (
+        I   => df_i_p_80,
+        IB  => df_i_n_80,
+        O   => clk_ina_int);
 
---    diff_clka_bufg : bufg
---    port map(
---        I => diff_clka_int,
---        O => diff_clka  
---    );
+
+    bufg_clk_in : bufg
+    port map(
+        I => clk_ina_int,
+        O => clk_in
+    );
 
 -----------------------------------------------------------------------
 
@@ -397,24 +400,23 @@ begin
 
   gen_data_i : for i in 0 to (IN_IOB_COUNT-1) generate
 
-  --reg_i : process (clk_inc)
-  --begin
-    --if (clk_inc'event and clk_inc = '1') then
+    reg_i : process (clk_in)
+    begin
+      if (clk_in'event and clk_in = '1') then
         internal_bus(i) <= iob_in(i);
 
         iob_out_a(i)    <= internal_bus(i);
         iob_out_b(i)    <= internal_bus(i);
         iob_out_c(i)    <= internal_bus(i);
-    --end if;
-
---end process;
+      end if;
+    end process;
 
   --iodelay_i : iodelay
   --generic map (
   --  REFCLK_FREQUENCY      => 200.0,                 -- idelayctrl frequency: 175 to 225 MHz
   --  SIGNAL_PATTERN        => "DATA")                -- input signal type, "clock" or "data" 
   --port map (
-  --  RST                   => iodelay_rst,           -- 1-bit active high, synch reset input
+  --  RST                   => iodelay_rst,                 -- 1-bit active high, synch reset input
   --  T                     => '1'                    -- 1-bit 3-state control input
   --);
 
@@ -461,7 +463,7 @@ begin
              
 -- UNUSED
 --df_0114_n    
---df_0114_p    
+--df_0114_p
 
 -------------------------------------------------------------------------------
 -- Port mapping: KU060 Bank 25 (52 IOs)
