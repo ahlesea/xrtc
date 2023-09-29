@@ -1,3 +1,3 @@
-# Unregistered - No SEM - LVDS
+# Unregistered - SEM - LVCMOS
 
-![Alt](../assets/lvcmos_reg.png)
+![Alt](../assets/lvcmos_unreg.png)
