@@ -1,3 +1,3 @@
-# Unregistered - No SEM - LVDS
+# Unregistered - SEM - LVDS
 
 ![Alt](../assets/lvds_noreg.png)
