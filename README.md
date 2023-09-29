@@ -37,7 +37,7 @@ Additionally - there are python scripts added in the hdl/xdc directories that mo
 6. Select the Generate Device Image option in the Flow Navigator "Program and Debug" section.
 
 # Known issues
-1.  :grinning_face_with_sweat: All the KU060 timing constraints are commented out.  We should add constraints here to inform the router that the IO signals are synchronous with the clock input. :grinning_face_with_sweat:
+1.  <span style="background-color:#ddd;">All the KU060 timing constraints are commented out.  We should add constraints here to inform the router that the IO signals are synchronous with the clock input. </span>
 2.  When XILSEM is enabled the PDI won't generate
 - <a href>https://support.xilinx.com/s/article/000034918?language=en_US</a>
     1. Install tactical patch from 34918<br>
