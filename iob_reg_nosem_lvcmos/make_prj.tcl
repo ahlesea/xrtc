@@ -23,8 +23,8 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "d:/git/iob/lvcmos_iob_nosem/lvcmos_iob_nosem.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v"
-#    "d:/git/iob/lvcmos_iob_nosem/lvcmos_iob_nosem.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp"
+#    "d:/git/iob/lvcmos_iob_nosem/lvcmos_iob_nosem.gen/sources_1/bd/lvcmos_reg_nosem/hdl/lvcmos_reg_nosem_wrapper.v"
+#    "d:/git/iob/lvcmos_iob_nosem/lvcmos_iob_nosem.srcs/utils_1/imports/synth_1/lvcmos_reg_nosem_wrapper.dcp"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -180,7 +180,7 @@ set_property -name "file_type" -value "VHDL" -objects $file_obj
 
 # Set 'sources_1' fileset properties
 set obj [get_filesets sources_1]
-set_property -name "top" -value "design_1_wrapper" -objects $obj
+set_property -name "top" -value "lvcmos_reg_nosem_wrapper" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 
 # Create 'constrs_1' fileset (if not found)
@@ -214,7 +214,7 @@ set obj [get_filesets sim_1]
 
 # Set 'sim_1' fileset properties
 set obj [get_filesets sim_1]
-set_property -name "top" -value "design_1_wrapper" -objects $obj
+set_property -name "top" -value "lvcmos_reg_nosem_wrapper" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "top_lib" -value "xil_defaultlib" -objects $obj
 
@@ -233,7 +233,7 @@ if { [get_files iob_lvcmos_dut_reg_versal.vhd] == "" } {
 }
 
 
-# Proc to create BD design_1
+# Proc to create BD lvcmos_reg_nosem
 proc cr_bd_design_1 { parentCell } {
 # The design that will be created by this Tcl proc contains the following 
 # module references:
@@ -242,7 +242,7 @@ proc cr_bd_design_1 { parentCell } {
 
 
   # CHANGE DESIGN NAME HERE
-  set design_name design_1
+  set design_name lvcmos_reg_nosem
 
   common::send_gid_msg -ssname BD::TCL -id 2010 -severity "INFO" "Currently there is no design <$design_name> in project, so creating one..."
 
@@ -881,10 +881,10 @@ pagesize -pg 1 -db -bbox -sgen -120 0 790 1970
 }
 # End of cr_bd_design_1()
 cr_bd_design_1 ""
-set_property REGISTERED_WITH_MANAGER "1" [get_files design_1.bd ] 
-set_property SYNTH_CHECKPOINT_MODE "Hierarchical" [get_files design_1.bd ] 
+set_property REGISTERED_WITH_MANAGER "1" [get_files lvcmos_reg_nosem.bd ] 
+set_property SYNTH_CHECKPOINT_MODE "Hierarchical" [get_files lvcmos_reg_nosem.bd ] 
 #call make_wrapper to create wrapper files
-set wrapper_path [make_wrapper -fileset sources_1 -files [ get_files -norecurse design_1.bd] -top]
+set wrapper_path [make_wrapper -fileset sources_1 -files [ get_files -norecurse lvcmos_reg_nosem.bd] -top]
 add_files -norecurse -fileset sources_1 $wrapper_path
 
 set idrFlowPropertiesConstraints ""
